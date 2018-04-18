@@ -19,3 +19,56 @@ int Solution::remove_duplicates(vector<int>& nums) {
 
     return (i+1);
 }
+
+ListNode *create_cycle_linkedlist(int n, int m) {
+    ListNode *head, *p, *q, *temp;
+    head = new ListNode;
+    p = head;
+    int i = 1;
+    while (i < n) {
+        if (i <= m) {
+            q = new ListNode;
+            q->val = i++;
+            p->next = q;
+            p = q;
+            temp = p;
+        }
+        else {
+            q = new ListNode;
+            q->val = i++;
+            q->next = temp;
+            p->next = q;
+            p = q;
+        }
+    }
+    return head->next;
+}
+
+ListNode *create_nocycle_linkedlist(int n) {
+    ListNode *head, *p, *q;
+    head = new ListNode;
+    p = head;
+    int i = 1;
+    while (i < n) {
+	p->val = i++;
+	q = new ListNode;
+	p->next = q;
+	p = q;
+    }
+    p->next = NULL;
+    return head;
+}
+
+bool Solution::has_cycle(ListNode* head) {
+    // cycle linked list
+    ListNode *pf = head;
+    ListNode *ps = head;
+
+    while (pf != NULL && pf->next != NULL) {
+	pf = pf->next->next;
+	ps = ps->next;
+	if (pf == ps)
+	    return true;
+    }
+    return false;    
+}
