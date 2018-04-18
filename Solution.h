@@ -18,6 +18,7 @@ class Solution {
 public:
     int remove_duplicates(vector<int>& nums);
     bool has_cycle(ListNode *head);
+    string reverse_string(string s);
 };
 
 #endif

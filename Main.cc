@@ -32,5 +32,9 @@ int main() {
     else {
 	cout << "There is no cycle of ln2" << endl;
     } */
-
+//--------------------------------------------------
+    string s1 = "Hello World!";
+    string s2 = "";
+    s2= sl.reverse_string(s1);
+    cout << s2 << endl;
 }

@@ -72,3 +72,17 @@ bool Solution::has_cycle(ListNode* head) {
     }
     return false;    
 }
+
+string Solution::reverse_string(string s) {
+    int len = s.size();
+    char tmp;
+    int i = 0, j = len - 1;
+    while ((i <= len/2)&&(j>=len/2)) { 
+	tmp = s[i];
+	s[i] = s[j];
+	s[j] = tmp;
+	i++;
+	j--;
+    }
+    return s;
+}
