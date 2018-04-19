@@ -41,7 +41,8 @@ public:
     BinaryTree():val(0),left(NULL),right(NULL) {}
     BinaryTree(int x,BinaryTree* L=NULL, BinaryTree* R=NULL):val(x),left(L),right(R) {}
     BinaryTree* create_tree();
-    int max_depth(BinaryTree* root); 
+    int max_depth(BinaryTree* root);
+    bool valid_tree(BinaryTree* root);
 };
 
 

@@ -37,10 +37,15 @@ int main() {
     BinaryTree* root = bt.create_tree();
     int dpt = 0;
     dpt = bt.max_depth(root);
-    cout << dpt << endl;
+    cout << dpt << endl; 
+    if (bt.valid_tree(root))
+	cout << "Valid BinaryTree." << endl;
+    else
+	cout << "Invalid BinaryTree." << endl;
+
 //--------------------------------------------------
-    string s1 = "Hello World!";
+/*    string s1 = "Hello World!";
     string s2 = "";
     s2= sl.reverse_string(s1);
-    cout << s2 << endl;
+    cout << s2 << endl; */
 }
