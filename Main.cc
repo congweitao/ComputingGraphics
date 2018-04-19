@@ -6,6 +6,7 @@
 using namespace std;
 
 class Solution sl;
+class BinaryTree bt;
 
 int main() {
 //-----------------------------------------------------
@@ -32,5 +33,8 @@ int main() {
     else {
 	cout << "There is no cycle of ln2" << endl;
     } */
-
+    BinaryTree* root = bt.create_tree();
+    int dpt = 0;
+    dpt = bt.max_depth(root);
+    cout << dpt << endl;
 }

@@ -72,3 +72,25 @@ bool Solution::has_cycle(ListNode* head) {
     }
     return false;    
 }
+
+BinaryTree* BinaryTree::create_tree() {
+    BinaryTree* g = new BinaryTree(1);
+    BinaryTree* e = new BinaryTree(2);
+    BinaryTree* f = new BinaryTree(3);
+    BinaryTree* d = new BinaryTree(4,NULL,g);
+    BinaryTree* c = new BinaryTree(5,NULL,f);
+    BinaryTree* b = new BinaryTree(6,d,e);
+    BinaryTree* a = new BinaryTree(7,b,c);
+
+    return a;
+}
+
+int BinaryTree::max_depth(BinaryTree* root) {
+    if (root == NULL)
+	return 0;
+    int ldepth = max_depth(root->left);
+    int rdepth = max_depth(root->right);
+    int depth = 1 + (ldepth>rdepth?ldepth:rdepth);
+
+    return depth;
+}
