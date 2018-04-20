@@ -93,6 +93,7 @@ int BinaryTree::max_depth(BinaryTree* root) {
     int depth = 1 + (ldepth>rdepth?ldepth:rdepth);
 
     return depth;
+}
 
 string Solution::reverse_string(string s) {
     int len = s.size();
@@ -107,3 +108,28 @@ string Solution::reverse_string(string s) {
     }
     return s;
 }
+
+bool BinaryTree::symetric_tree(BinaryTree* L, BinaryTree* R) {
+    if (!L && !R)
+	return true;
+    if ((L != NULL) && (R != NULL)) {
+	if (L->val == R->val) {
+	    if (symetric_tree(L->left,R->right) && symetric_tree(L->right, R->left))
+		return true;
+	}
+    }
+    return false;
+}
+
+bool BinaryTree::is_symetric(BinaryTree* root) {
+    if (!root)
+	return true;
+    if (!(root->left) && !(root->right))
+	return true;
+    if ((root->left != NULL) && (root->right != NULL)) {
+	symetric_tree(root->left, root->right);
+    }
+    else
+	return false;
+}
+

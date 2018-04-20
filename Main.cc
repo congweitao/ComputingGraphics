@@ -35,12 +35,14 @@ int main() {
     } */
 //-------------------------------------------------
     BinaryTree* root = bt.create_tree();
-    int dpt = 0;
+    /* int dpt = 0;
     dpt = bt.max_depth(root);
-    cout << dpt << endl;
+    cout << dpt << endl; */
+   if (!bt.is_symetric(root))
+	cout << "Is not a symetric binary tree." << endl;
 //--------------------------------------------------
-    string s1 = "Hello World!";
+/*    string s1 = "Hello World!";
     string s2 = "";
     s2= sl.reverse_string(s1);
-    cout << s2 << endl;
+    cout << s2 << endl; */
 }

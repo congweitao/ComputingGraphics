@@ -42,7 +42,8 @@ public:
     BinaryTree(int x,BinaryTree* L=NULL, BinaryTree* R=NULL):val(x),left(L),right(R) {}
     BinaryTree* create_tree();
     int max_depth(BinaryTree* root); 
+    bool symetric_tree(BinaryTree* L, BinaryTree* R);
+    bool is_symetric(BinaryTree* root);
 };
-
 
 #endif
