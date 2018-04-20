@@ -44,6 +44,7 @@ public:
     int max_depth(BinaryTree* root); 
     bool symetric_tree(BinaryTree* L, BinaryTree* R);
     bool is_symetric(BinaryTree* root);
+    bool valid_tree(BinaryTree* root);
 };
 
 #endif

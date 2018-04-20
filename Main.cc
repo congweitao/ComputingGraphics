@@ -40,6 +40,11 @@ int main() {
     cout << dpt << endl; */
    if (!bt.is_symetric(root))
 	cout << "Is not a symetric binary tree." << endl;
+/*    if (bt.valid_tree(root))
+	cout << "Valid BinaryTree." << endl;
+    else
+	cout << "Invalid BinaryTree." << endl; */
+
 //--------------------------------------------------
 /*    string s1 = "Hello World!";
     string s2 = "";

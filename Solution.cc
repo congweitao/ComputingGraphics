@@ -74,11 +74,11 @@ bool Solution::has_cycle(ListNode* head) {
 }
 
 BinaryTree* BinaryTree::create_tree() {
-    BinaryTree* g = new BinaryTree(1);
-    BinaryTree* e = new BinaryTree(2);
-    BinaryTree* f = new BinaryTree(3);
+    BinaryTree* g = new BinaryTree(11);
+    BinaryTree* e = new BinaryTree(8);
+    BinaryTree* f = new BinaryTree(10);
     BinaryTree* d = new BinaryTree(4,NULL,g);
-    BinaryTree* c = new BinaryTree(5,NULL,f);
+    BinaryTree* c = new BinaryTree(9,NULL,f);
     BinaryTree* b = new BinaryTree(6,d,e);
     BinaryTree* a = new BinaryTree(7,b,c);
 
@@ -133,3 +133,16 @@ bool BinaryTree::is_symetric(BinaryTree* root) {
 	return false;
 }
 
+bool BinaryTree::valid_tree(BinaryTree* root) {
+    if (root==NULL)
+	return true;
+    if ((root->left != NULL) && (root->val < root->left->val))
+	return false;
+    if ((root->right != NULL) && (root->val > root->right->val))
+	return false;
+
+    if (!valid_tree(root->left) || !valid_tree(root->right))
+	return false;
+    
+    return true;
+}
