@@ -23,6 +23,11 @@ public:
 
 class LRUCache {
 public:
+    LRUCache* prev;
+    LRUCache* next;
+    int value;
+    int key;
+public:
     LRUCache(int capacity);
     int get(int key);
     int set(int key, int value);
