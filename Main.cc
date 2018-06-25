@@ -8,6 +8,7 @@ using namespace std;
 class Solution sl;
 class BinaryTree bt;
 
+
 int main() {
 //-----------------------------------------------------
 /*  int len;
@@ -34,12 +35,12 @@ int main() {
 	cout << "There is no cycle of ln2" << endl;
     } */
 //-------------------------------------------------
-    BinaryTree* root = bt.create_tree();
+//    BinaryTree* root = bt.create_tree();
     /* int dpt = 0;
     dpt = bt.max_depth(root);
     cout << dpt << endl; */
-   if (!bt.is_symetric(root))
-	cout << "Is not a symetric binary tree." << endl;
+//   if (!bt.is_symetric(root))
+//	cout << "Is not a symetric binary tree." << endl;
 /*    if (bt.valid_tree(root))
 	cout << "Valid BinaryTree." << endl;
     else
@@ -50,4 +51,16 @@ int main() {
     string s2 = "";
     s2= sl.reverse_string(s1);
     cout << s2 << endl; */
+
+    ListNode* head = new ListNode(0);
+    ListNode* cur = head;
+    for (int i = 0; i < 10; i++)
+    {
+        ListNode* newnode = new ListNode(floor(rand()%100));
+        cur->next = newnode;
+        cur = newnode;
+    }
+    sl.display(head);
+    head = sl.reverse_list(head);
+    sl.display(head);
 }

@@ -3,12 +3,16 @@
 
 #include <iostream>
 #include <vector>
+#include <math.h>
+#include <stdlib.h>
 
 using namespace std;
 
-struct ListNode {
+class ListNode {
+public:
     int val;
     ListNode *next;
+    ListNode(int x):val(x),next(NULL) {}
 };
 
 ListNode *create_cycle_linkedlist(int n, int m);
@@ -19,6 +23,21 @@ public:
     int remove_duplicates(vector<int>& nums);
     bool has_cycle(ListNode *head);
     string reverse_string(string s);
+
+    void display(ListNode* head);
+    ListNode* reverse_list(ListNode* head) {
+        if (head == NULL)
+	    return head;
+        ListNode* prev = head;
+        ListNode* cur = head->next;
+        while (cur != NULL) {
+            prev->next = cur->next;
+            cur->next = head;
+            head = cur;
+            cur = prev->next;
+	}
+        return head;
+    }
 };
 
 class LRUCache {

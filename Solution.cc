@@ -1,5 +1,15 @@
 #include "Solution.h"
 
+void Solution::display(ListNode* head)
+{
+    while (head != NULL)
+    {
+        cout << " " << head->val << " ";
+	head = head->next;
+    }
+    cout << endl;
+}
+
 int Solution::remove_duplicates(vector<int>& nums) {
     // remove duplicates in an array
     int i = 0, count = nums.size()-1;
@@ -20,19 +30,19 @@ int Solution::remove_duplicates(vector<int>& nums) {
 
 ListNode *create_cycle_linkedlist(int n, int m) {
     ListNode *head, *p, *q, *temp;
-    head = new ListNode;
+    head = new ListNode(0);
     p = head;
     int i = 1;
     while (i < n) {
         if (i <= m) {
-            q = new ListNode;
+            q = new ListNode(0);
             q->val = i++;
             p->next = q;
             p = q;
             temp = p;
         }
         else {
-            q = new ListNode;
+            q = new ListNode(0);
             q->val = i++;
             q->next = temp;
             p->next = q;
@@ -44,12 +54,12 @@ ListNode *create_cycle_linkedlist(int n, int m) {
 
 ListNode *create_nocycle_linkedlist(int n) {
     ListNode *head, *p, *q;
-    head = new ListNode;
+    head = new ListNode(0);
     p = head;
     int i = 1;
     while (i < n) {
 	p->val = i++;
-	q = new ListNode;
+	q = new ListNode(0);
 	p->next = q;
 	p = q;
     }
