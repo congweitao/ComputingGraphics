@@ -84,5 +84,3 @@ int main() {
     queen();
     return 0;
 }
-
-

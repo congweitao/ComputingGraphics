@@ -51,7 +51,7 @@ int main() {
     string s2 = "";
     s2= sl.reverse_string(s1);
     cout << s2 << endl; */
-
+/*
     ListNode* head = new ListNode(0);
     ListNode* cur = head;
     for (int i = 0; i < 10; i++)
@@ -62,5 +62,20 @@ int main() {
     }
     sl.display(head);
     head = sl.reverse_list(head);
-    sl.display(head);
+    sl.display(head); */
+
+    /*  // two sum problem
+    vector<int> n = {4,5,7,9,11};
+    int t = 12;
+    vector<int> s;
+
+    s = sl.two_sum(n,t);
+    vector<int>::iterator it;
+    it = s.begin();
+    while (it != s.end()) {
+	cout << "s : " << *it << endl;
+	it++;
+    } */
+    
+
 }

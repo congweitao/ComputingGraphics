@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
+#include <unordered_map>
 #include <math.h>
 #include <stdlib.h>
 
@@ -20,6 +22,7 @@ ListNode *create_nocycle_linkedlist(int n);
 
 class Solution {
 public:
+    vector<int> two_sum(vector<int>& nums, int target);
     int remove_duplicates(vector<int>& nums);
     bool has_cycle(ListNode *head);
     string reverse_string(string s);
@@ -37,6 +40,24 @@ public:
             cur = prev->next;
 	}
         return head;
+    }
+    
+    ListNode* add_two_sum(ListNode* l1, ListNode* l2) {
+	ListNode* res = new ListNode(-1);
+	ListNode* cur = res;
+
+	int carry = 0;
+	while (l1 || l2) {
+	    int n1 = l1 ? l1->val : 0;
+	    int n2 = l2 ? l2->val : 0;
+	    int sum = n1 + n2 + carry;
+	    carry = sum / 10;
+	    cur->next = new ListNode(sum%10);
+	    if (l1) l1 = l1->next;
+	    if (l2) l2 = l2->next;
+	}
+	if (carry) cur->next = new ListNode(1);
+	return res->next;
     }
 };
 
