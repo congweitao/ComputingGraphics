@@ -137,8 +137,7 @@ bool BinaryTree::is_symetric(BinaryTree* root) {
     if ((root->left != NULL) && (root->right != NULL)) {
 	symetric_tree(root->left, root->right);
     }
-    else
-	return false;
+    return false;
 }
 
 bool BinaryTree::valid_tree(BinaryTree* root) {

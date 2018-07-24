@@ -42,6 +42,19 @@ public:
         return head;
     }
     
+    ListNode* remove_nth_node(ListNode* head, int n) {
+	ListNode* pre = head;
+	ListNode* cur = head->next;
+	for (int i = 0; i < n; i++) cur = cur->next;
+	if (cur == NULL) return head->next;
+	while (cur->next != NULL) {
+	    cur = cur->next;
+	    pre = pre->next;
+	}
+	pre->next = pre->next->next;
+	return head;
+    }
+    
     ListNode* add_two_sum(ListNode* l1, ListNode* l2) {
 	ListNode* res = new ListNode(-1);
 	ListNode* cur = res;
