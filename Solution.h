@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <stack> 
 #include <unordered_map>
 #include <math.h>
 #include <stdlib.h>
@@ -71,6 +72,22 @@ public:
 	}
 	if (carry) cur->next = new ListNode(1);
 	return res->next;
+    }
+
+    bool is_valid_parentheses(string s) {
+	stack<char> parentheses;
+	for (int i = 0; i < s.size(); i++) {
+	    if (s[i] == '(' || s[i] == '[' || s[i] == '{') parentheses.push(s[i]);
+	    else {
+		if (parentheses.empty()) return false;
+                if (s[i] == ')' && parentheses.top() != '(') return false;
+                if (s[i] == ']' && parentheses.top() != '[') return false;
+                if (s[i] == '}' && parentheses.top() != '{') return false;
+                parentheses.pop();
+		return true;
+	    }
+	}
+	return false;
     }
 };
 
