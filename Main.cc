@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <list>
 
 #include "Solution.h"
 
@@ -78,8 +79,17 @@ int main() {
 	it++;
     } */
     /* is valid parentheses */
-    string s = "{dadaddaddada}";
+    /* string s = "{dadaddaddada}";
     if (sl.is_valid_parentheses(s)) 
-	cout << "valid." << endl;
+	cout << "valid." << endl; */
 
+    /** merge two listnode */
+    ListNode *l1, *l2;
+    ListNode* l3 = NULL;
+    l1 = create_nocycle_linkedlist(3);
+    sl.display(l1);
+    l2 = create_nocycle_linkedlist(4);
+    sl.display(l2);
+    l3 = sl.merge_twolistnode(l1,l2);
+    sl.display(l3);
 }

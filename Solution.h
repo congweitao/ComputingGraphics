@@ -74,6 +74,23 @@ public:
 	return res->next;
     }
 
+    ListNode *merge_twolistnode(ListNode* l1, ListNode* l2) {
+	if (l1 == NULL || l2 == NULL ) {
+	    if (l1 == NULL && l2 == NULL) return NULL;
+	    else return (l1==NULL)?l2:l1;
+	}
+    
+	ListNode* merge = NULL;
+	if (l1->val < l2->val) {
+	    merge = l1;
+	    merge->next = merge_twolistnode(l1->next,l2);   
+	} else {
+	    merge = l2;
+	    merge->next = merge_twolistnode(l1,l2->next);
+	}
+	return merge;
+    }
+
     bool is_valid_parentheses(string s) {
 	stack<char> parentheses;
 	for (int i = 0; i < s.size(); i++) {
