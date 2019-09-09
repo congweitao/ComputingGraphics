@@ -1,42 +1,28 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-double findMedianSortedArrays(vector<int>& num1, vector<int>& num2) {
-	int m = num1.size();
-	int n = num2.size();
-	int min_index = 0, max_index = m, i, j;
-	double median;
-	while (min_index <= max_index) {
-		i = (min_index + max_index) / 2;
-		j = ((m + n +1) / 2) - i;
-		
-		// check if num1 or num2 is empty in the halt partition
-		// searching on the right
-		if ( i < m && j > 0 && num2[j -1] > num1[i]) 
-			min_index = i + 1;
-		// searching on the left
-		else if (i > 0 && j < n && num2[j] < num1[i - 1])
-			max_index = i - 1;
-		else {
-			if (i==0)
-				median = num2[j - 1];
-			else if (j == 0)
-				median = num1[j - 1];
-			else
-				median = max(num1[i - 1], num2[j -1]);
-			break;
-		}
+double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+	int m = nums1.size(), n = nums2.size();
+	if (m < n) return findMedianSortedArrays(nums2, nums1);
+	if (n == 0) return ((double)nums1[(m - 1) / 2] + (double)nums1[m / 2]) / 2.0;
+	int left = 0, right = n * 2;
+
+	while (left <= right) {
+	    int mid2 = (left + right) / 2;
+	    int mid1 = m + n - mid2;
+	    double L1 = mid1 == 0 ? INT_MIN : nums1[(mid1 - 1) / 2];
+	    double L2 = mid2 == 0 ? INT_MIN : nums2[(mid2 - 1) / 2];
+	    double R1 = mid1 == m * 2 ? INT_MAX : nums1[mid1 / 2];
+	    double R2 = mid2 == n * 2 ? INT_MAX : nums2[mid2 / 2];
+	    if (L1 > R2) left = mid2 + 1;
+	    else if (L2 > R1) right = mid2 - 1;
+	    else return (max(L1, L2) + min(R1, R2)) / 2;
 	}
-	if ((n + m) % 2 == 1) 
-		return median;
-	if (i == m)
-		return (median + num2[j]) / 2;
-	if (j == n)
-		return (median + num1[i]) / 2;
-	return (median + min(num1[i],num2[j])) / 2;
+	return -1;
 }
 
 int main() {
