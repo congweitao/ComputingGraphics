@@ -1,0 +1,19 @@
+Requires: openstack-java-keystone-model >= 3.2.7
+Requires: ebay-cors-filter
+Requires: collectd-write_syslog
+Requires: collectd-write_http
+Requires: ovirt-imageio-common = 1.5.2
+Requires: nimbus-jose-jwt >= 5.12
+Requires: openstack-java-quantum-model >= 3.2.7
+Requires: openstack-java-client >= 3.2.7
+Requires: json-smart >= 2.2
+Requires: openstack-java-resteasy-connector >= 3.2.7
+Requires: openstack-java-cinder-model >= 3.2.7
+Requires: collectd-disk
+Requires: openstack-java-quantum-client >= 3.2.7
+Requires: ovirt-engine-wildfly = 17.0.1-1.el7
+Requires: openstack-java-glance-client >= 3.2.7
+Requires: openstack-java-cinder-client >= 3.2.7
+Requires: openstack-java-keystone-client >= 3.2.7
+Requires: python-ovirt-engine-sdk4 >= 4.0.0
+Requires: openstack-java-glance-model >= 3.2.7
