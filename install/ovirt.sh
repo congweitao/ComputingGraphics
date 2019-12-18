@@ -20,6 +20,15 @@ rpm -ivh http://mirror.centos.org/altarch/7/virt/aarch64/ovirt-4.3/openstack-jav
 
 # step 0 create repo
 cat > /etc/yum.repos.d/ovirt.repo <<EOF
+[ovirt-4.3]
+name=Latest oVirt 4.3 Release
+#baseurl=https://resources.ovirt.org/pub/ovirt-4.3/rpm/el$releasever/
+mirrorlist=https://resources.ovirt.org/pub/yum-repo/mirrorlist-ovirt-4.3-el$releasever
+enabled=1
+skip_if_unavailable=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-4.3
+
 [ovirt]
 name=ovirt
 baseurl=http://mirror.centos.org/altarch/7.7.1908/virt/aarch64/kvm-common/
@@ -75,3 +84,15 @@ su - postgres -c "source /opt/rh/rh-postgresql10/enable;psql -d template1 -c \"c
 su - postgres -c "source /opt/rh/rh-postgresql10/enable;psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
 su - postgres -c "source /opt/rh/rh-postgresql10/enable;psql -d engine -c \"CREATE EXTENSION \\\"uuid-ossp\\\";\""
 --> OK
+
+# for ovirt-host-deploy
+wget https://github.com/oVirt/ovirt-host-deploy/archive/ovirt-host-deploy-1.8.4.tar.gz
+autoreconf -ivf
+./configure
+make dist
+TARGZ=`ls -1 ovirt-host-deploy*.tar.gz`
+yum -y install python2-otopi-devtools.noarch maven-compiler-plugin.noarch  maven-enforcer-plugin.noarch maven-install-plugin.noarch maven-jar-plugin.noarch maven-source-plugin.noarch maven-local.noarch  sonatype-oss-parent.noarch
+rpmbuild -tb $TARGZ
+--> OK
+
+
