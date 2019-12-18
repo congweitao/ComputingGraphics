@@ -5,6 +5,7 @@ Version:        17.0.1
 Release:	1
 Summary:	WildFly Application Server for oVirt Engine
 Group:		Virtualization/Management
+BuildArch:	noarch
 License:	ASL 2.0
 URL:		http://wildfly.org
 Source:		wildfly-17.0.1.Final.zip
