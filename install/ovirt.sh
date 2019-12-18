@@ -77,6 +77,7 @@ wget https://resources.ovirt.org/pub/ovirt-4.3/src/ovirt-engine-wildfly/wildfly-
 git clone https://github.com/oVirt/ovirt-engine-wildfly.git
 rpmbuild -bb ovirt-engine-wildfly.spec
 rpmbuild -bb ovirt-engine-wildfly-overlay.spec
+--> OK
 # - JBoss
 
 # create database
