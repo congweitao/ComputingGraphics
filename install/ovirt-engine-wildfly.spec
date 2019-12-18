@@ -2,7 +2,7 @@
 
 Name:		ovirt-engine-wildfly
 Version:        17.0.1	
-Release:	1
+Release:	1.el7
 Summary:	WildFly Application Server for oVirt Engine
 Group:		Virtualization/Management
 BuildArch:	noarch
