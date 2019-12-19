@@ -12,3 +12,8 @@ vdsm-tool configure --force
 # step 4
 service vdsmd start
 service supervdsm start
+
+# vish username/password
+vish list --all
+> vdsm@ovirt    # /usr/lib/python2.7/site-packages/vdsm/common/libvirtconnection.py
+> shibboleth    # /etc/pki/vdsm/keys/libvirt_password
