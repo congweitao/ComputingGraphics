@@ -86,6 +86,16 @@ su - postgres -c "source /opt/rh/rh-postgresql10/enable;psql -d template1 -c \"c
 su - postgres -c "source /opt/rh/rh-postgresql10/enable;psql -d engine -c \"CREATE EXTENSION \\\"uuid-ossp\\\";\""
 --> OK
 
+# make rpm components
+wget https://cbs.centos.org/kojifiles/packages/python-ovirt-engine-sdk4/4.2.4/1.el7/aarch64/python-ovirt-engine-sdk4-4.2.4-1.el7.aarch64.rpm
+wget https://resources.ovirt.org/pub/ovirt-4.3/src/ovirt-imageio-common/ovirt-imageio-common-1.5.2.tar.gz
+yum install python-webob qemu-img-rhev
+--> OK
+
+# install collectd
+5.8.1-3
+--> OK
+
 # for ovirt-host-deploy
 wget https://github.com/oVirt/ovirt-host-deploy/archive/ovirt-host-deploy-1.8.4.tar.gz
 autoreconf -ivf
