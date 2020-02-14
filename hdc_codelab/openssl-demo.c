@@ -14,6 +14,9 @@ int main(int argc, char **argv)
     /* Initializing OpenSSL*/
     SSL_load_error_strings();
     ERR_load_BIO_strings();
+
+    // load openssl configure
+    OPENSSL_init_crypto(OPENSSL_INIT_LOAD_CONFIG, NULL);
     OpenSSL_add_all_algorithms();
 
     /* You can use ENGINE_by_id Function to get the handle of Huawei Accelerator Enine */
