@@ -1,11 +1,11 @@
-## GcomputingGraphics - c++ projects
+## ComputingGraphics - c++ projects
 Implementation of C++ programs.
 
 ## Building the source
 `g++ xx.cc -o xx`
 
 
-*Note: ballet is a repository for c++ practice. All codes in this reposistory only can be used as a learning materials, but not for 
+*Note: ComputingGraphics is a repository for c++ practice. All codes in this reposistory only can be used as a learning materials, but not for 
 commercial use.*
 
 
