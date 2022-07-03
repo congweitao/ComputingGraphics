@@ -1,4 +1,4 @@
-## ballet - c++ projects
+## GcomputingGraphics - c++ projects
 Implementation of C++ programs.
 
 ## Building the source
